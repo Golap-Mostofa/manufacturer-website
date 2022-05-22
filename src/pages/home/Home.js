@@ -6,10 +6,10 @@ import Tools from './Tools';
 
 const Home = () => {
     return (
-        <div>
+        <div className=''>
             <HomeBanner></HomeBanner>
             <Tools></Tools>
-            <Services></Services>
+            {/* <Services></Services> */}
             <Footer></Footer>
         </div>
     );
