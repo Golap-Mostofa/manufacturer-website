@@ -7,7 +7,7 @@ import Navbar from './pages/sheard/Navbar';
 
 function App() {
   return (
-    <div className="App">
+    <div className='bg-white'>
       
       <Navbar></Navbar>
       <Routes>
