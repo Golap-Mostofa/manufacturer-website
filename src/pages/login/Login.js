@@ -1,16 +1,42 @@
 import React from 'react';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 // import auth from '../login/firebase.init'
-import auth from '../login/firebase.init'
+
 
 const Login = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data =>{
-         console.log(data);
-        }
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+      let errorMasage;
+      const navigate = useNavigate();
+      const location = useLocation();
+      let from = location.state?.from?.pathname || '/';
+ 
+      if(user || guser){
+        navigate(from,{replace:true})
+    }
+ 
+    if(loading || gloading){
+        return <p>Loging....</p>
+    }
+ 
+    if(error || gerror){
+        errorMasage = <p className='text-red-500'>
+            {error?.message || gerror?.message}
+        </p>
+    }
+    const onSubmit = data => {
+        console.log(data);
+        signInWithEmailAndPassword(data.email, data.passwoed)
+    }
     return (
         <div className='flex h-screen justify-center items-center mt-6'>
             <div className="card w-96  shadow-xl">
@@ -71,11 +97,12 @@ const Login = () => {
                             </label>
                         </div>
                         <input className='btn btn-primary w-full max-w-xs' type="submit" value="Login" />
-                        
+
                     </form>
+                    {errorMasage}
                     <p><small>new to car sporte?<Link to={'/signup'} className='text-primary'>create account</Link></small></p>
                     <div className="divider"><small>OR</small></div>
-                        <button
+                    <button
                         onClick={() => signInWithGoogle()}
                         className='btn btn-outline btn-success'>Continue with Google</button>
                 </div>

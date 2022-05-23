@@ -19,15 +19,11 @@ const Tools = () => {
                 {
                     Tools.map(tool=><Tool
                     tool={tool}
-                    setParchase={setParchase}
+                
                     ></Tool>)
                 }
             </div>
-            {
-             parchase && <Parchase 
-             parchase={parchase}
-             ></Parchase>
-            }
+           
         </div>
     );
 };

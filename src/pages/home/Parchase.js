@@ -1,18 +1,58 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
-const Parchase = ({ parchase }) => {
-    const { name, discription, price } = parchase
+const Parchase = () => {
+    const [user, loading, error] = useAuthState(auth);
+    const { service } = useParams()
+
+    const hendaleBooking=(e)=>{
+        e.preventDefault()
+        const Name = e.target.mini.value
+        const phone = e.target.phone.value
+
+        const booking={
+            Name,
+            phone,
+            service:service,
+            name:user.displayName,
+            email:user.email
+            
+        }
+        console.log(booking);
+        fetch(`http://localhost:5000/booking`,{
+            method:'POST',
+            headers:{
+                'content-type':`application/json`
+            },
+            body:JSON.stringify(booking)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            // console.log(data);
+            if(data.success){
+                toast.error('allrady booked product')
+            }
+            else{
+                toast.success('booked your appoin ment ')
+            }
+        })
+
+    }
+
     return (
-        <div>
-            <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <h3 class="font-bold text-lg text-success">{parchase.name}</h3>
-                    <form className='grid grid-cols-1 gap-4 justify-center mt-8'>
-                        <input type="text" value={name} class="input input-bordered w-full max-w-xs" />
-                        <input type="text" value={price} class="input input-bordered w-full max-w-xs" />
-                        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-                        <input type="submit" value={'submit'} class=" btn primary w-full max-w-xs" />
+        <div className='flex justify-center items-center'>
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h2 className="card-title">Card title!</h2>
+                    <form onSubmit={hendaleBooking} className='grid grid-cols-1 gap-8'>
+                        <input disabled type="text" value={user?.displayName} className="input input-bordered w-full max-w-xs" />
+                        <input disabled type="email" value={user?.email} className="input input-bordered w-full max-w-xs" />
+                        <input name='mini' type="text" placeholder="mini product" className="input input-bordered w-full max-w-xs" />
+                        <input name='phone' type="text" placeholder="Phone" className="input input-bordered w-full max-w-xs" />
+                        <input type="submit" value={'addTo'} className="btn btn-success w-full max-w-xs" />
                     </form>
                 </div>
             </div>

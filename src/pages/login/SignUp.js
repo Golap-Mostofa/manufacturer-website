@@ -2,15 +2,29 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth';
-import auth from '../login/firebase.init'
+import auth from '../../firebase.init'
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+      let errorMasage;
     const Navigate = useNavigate()
-    if(user){
+    if(user || user1){
         Navigate('/')
     }
+
+    if(error || error1){
+        errorMasage = <p>
+            {error?.message || error1?.message}
+        </p>
+    }
     const onSubmit = data => {
+        createUserWithEmailAndPassword(data.email,data.password)
         console.log(data);
     }
     return (
@@ -96,6 +110,7 @@ const SignUp = () => {
                         </div>
                         <input className='btn btn-primary w-full max-w-xs' type="submit" value="Login" />
                     </form>
+                    {errorMasage}
                     <p><small>Alrady have an account?<Link className='text-primary' to={'/login'}> please Login</Link></small></p>
                     <div className="divider"><small>OR</small></div>
                     <button

@@ -1,35 +1,50 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { NavLink } from 'react-router-dom';
+import auth from '../../firebase.init';
+
 
 const Navbar = () => {
+    const [user, loading, error] = useAuthState(auth);
+    const logout = () => {
+        signOut(auth);
+      }
     return (
-        <div class="navbar bg-base-100">
-            <div class="flex-1 ">
-                <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <div className="navbar bg-base-100">
+            <div className="flex-1 ">
+                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
             </div>
-            <div class="flex-none">
-                <ul class="menu menu-horizontal p-0">
+            <div className="flex-none">
+                <ul className="menu menu-horizontal p-0">
                     <li><NavLink className={'ml-3'} to={'/'}>Home</NavLink></li>
-                    <li><NavLink className={'ml-3'} to={'/about'}>about</NavLink></li>
+                    <li><NavLink className={'ml-3'} to={'/parchase'}>parchase</NavLink></li>
                     <li><NavLink className={'ml-3'} to={'/concat'}>concat</NavLink></li>
-                    <li><NavLink className={'ml-3'} to={'/Login'}>Login</NavLink></li>
-                    <div class="dropdown dropdown-end">
-                        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                            <div class="w-10 rounded-full">
+                    <li>{
+                        user ? <button
+                        onClick={logout}  className="btn btn-ghost"
+                        >Signout</button>
+                        :
+                        <NavLink className={'ml-3'}
+                     to={'/Login'}>Login</NavLink>}</li>
+                    {/* <div className="dropdown dropdown-end">
+                        <label tabindex="0" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
                                 <img src="https://api.lorem.space/image/face?hash=33791" />
                             </div>
                         </label>
-                        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
-                                <a class="justify-between">
+                                <a className="justify-between">
                                     Profile
-                                    <span class="badge">New</span>
+                                    <span className="badge">New</span>
                                 </a>
                             </li>
                             <li><a>Settings</a></li>
                             <li><a>Logout</a></li>
                         </ul>
-                    </div>
+                    </div> */}
                 </ul>
             </div>
         </div>
