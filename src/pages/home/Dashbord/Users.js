@@ -4,7 +4,7 @@ import Lod from '../../sheard/Lod';
 import UserRow from './UserRow';
 
 const Users = () => {
-    const { data: users, isLoading } = useQuery('users', () => fetch(`http://localhost:5000/user`).then(res => res.json()))
+    const { data: users, isLoading,refetch } = useQuery('users', () => fetch(`http://localhost:5000/user`).then(res => res.json()))
     if (isLoading) {
         // <Lod></Lod>
     }
@@ -25,9 +25,10 @@ const Users = () => {
                     <tbody>
                         
                        {
-                        users.map(user=><UserRow
+                        users?.map(user=><UserRow
                         key={user._id}
                         user={user}
+                        refetch={refetch}
                         ></UserRow>)
                        }
                         
