@@ -11,6 +11,7 @@ import RequerAuth from './pages/login/RequerAuth';
 import Dashbord from './pages/home/Dashbord/Dashbord';
 import MyDashbord from './pages/home/Dashbord/MyDashbord';
 import ReviwProduct from './pages/home/Dashbord/ReviwProduct';
+import Users from './pages/home/Dashbord/Users';
 function App() {
   return (
     <div className='bg-white'>
@@ -26,6 +27,7 @@ function App() {
         </RequerAuth>}>
           <Route index element={<MyDashbord></MyDashbord>}></Route>
           <Route path='review' element={<ReviwProduct></ReviwProduct>}></Route>
+          <Route path='users' element={<Users></Users>}></Route>
 
         </Route>
 
