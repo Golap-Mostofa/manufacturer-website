@@ -13,7 +13,7 @@ const MyDashbord = () => {
                 .then(res => res.json())
                 .then(data => {
                     setBooked(data)
-                    console.log(data);
+                    // console.log(data);
                 })
         }
     }, [user])
@@ -21,8 +21,8 @@ const MyDashbord = () => {
     return (
         <div>
             <h2 className='text-center text-2xl text-success fond-semibold m-8'>My Order review</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
