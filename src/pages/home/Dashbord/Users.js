@@ -6,8 +6,9 @@ import UserRow from './UserRow';
 const Users = () => {
     const { data: users, isLoading,refetch } = useQuery('users', () => fetch(`http://localhost:5000/user`).then(res => res.json()))
     if (isLoading) {
-        // <Lod></Lod>
+       return <Lod></Lod>
     }
+console.log(users);
     return (
         <div>
             <h2 className='text-2xl'>all user{users?.length}</h2>
@@ -26,7 +27,7 @@ const Users = () => {
                         
                        {
                         users?.map(user=><UserRow
-                        key={user._id}
+                        key={user?._id}
                         user={user}
                         refetch={refetch}
                         ></UserRow>)

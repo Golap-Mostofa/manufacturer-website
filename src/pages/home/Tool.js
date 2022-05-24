@@ -2,29 +2,32 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Tool = ({ tool }) => {
-  const {id, name, img, price, discription, minimum, avaleble } = tool
+  const { id, name, img, price, discription, minimum, avaleble } = tool
   // console.log(tool);
   const navigate = useNavigate()
-  const servicesadd = (id)=>{
+  const servicesadd = (id) => {
     navigate(`/parchase/${id}`)
   }
   return (
-    <div className="card lg-max:w-lg  shadow-xl">
-      <figure><img src='' alt="Shoes" /></figure>
-      <div className="card-body">
-        <h2 className="card-title">
-          {name}
-          <div className="badge badge-secondary">NEW</div>
-        </h2>
-        <p>{price}</p>
-        <p>{discription}</p>
-        <div className="card-actions justify-around">
-          <div className="badge badge-outline">mini..{minimum}</div>
-          <div className="badge badge-outline">Avail...{avaleble}</div>
+    <div className="border shadow-sm">
+
+      <div className='shadow-sm '>
+        <div >
+          <img className='rounded-sm p-1' src={img} alt="" />
+          <div className='p-3'>
+            <p className='text-center font-semibold text-green-700 text-2xl'>{name}</p>
+            <p>{discription}</p>
+            <p className='text-center text-green-600'>price:{price}</p>
+          </div>
+
+          <div className='text-center mt-4 pb-3'>
+          
+            <label onClick={() => servicesadd(id)}
+              className="uppercase bg-lime-600 py-3 px-5 font-semibold text-white rounded"
+            >booked New</label>
+          </div>
         </div>
-        <label onClick={() => servicesadd(id)}
-          className="btn btn-primary mt-4"
-        >open modal</label>
+       
       </div>
 
     </div>
