@@ -19,8 +19,9 @@ const Dashbord = () => {
                         {/* <!-- Sidebar content here --> */}
                         <li><Link to={'/dashbord'}>Dashbord</Link></li>
                         <li><Link to={'/dashbord/review'}>MyRevew</Link></li>
-                        <li><Link to={'/dashbord/order'}>myOrder</Link></li>
+                        <li><Link to={'/dashbord/addproduct'}>Add product</Link></li>
                         <li><Link to={'/dashbord/users'}>All user</Link></li>
+                        <li><Link to={'/dashbord/manage'}>Manage product</Link></li>
                        
                     </ul>
 

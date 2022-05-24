@@ -12,6 +12,8 @@ import Dashbord from './pages/home/Dashbord/Dashbord';
 import MyDashbord from './pages/home/Dashbord/MyDashbord';
 import ReviwProduct from './pages/home/Dashbord/ReviwProduct';
 import Users from './pages/home/Dashbord/Users';
+import AddProduct from './pages/home/Dashbord/AddProduct';
+import ManageProduct from './pages/home/Dashbord/ManageProduct';
 function App() {
   return (
     <div className='bg-white'>
@@ -28,6 +30,8 @@ function App() {
           <Route index element={<MyDashbord></MyDashbord>}></Route>
           <Route path='review' element={<ReviwProduct></ReviwProduct>}></Route>
           <Route path='users' element={<Users></Users>}></Route>
+          <Route path='addproduct' element={<AddProduct></AddProduct>}></Route>
+          <Route path='manage' element={<ManageProduct></ManageProduct>}></Route>
 
         </Route>
 
