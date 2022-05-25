@@ -37,7 +37,7 @@ const Login = () => {
     }
     const onSubmit = data => {
         console.log(data);
-        signInWithEmailAndPassword(data.email, data.passwoed)
+        signInWithEmailAndPassword(data.email, data.password)
     }
     return (
         <div className='flex h-screen justify-center items-center mt-6'>
@@ -74,7 +74,7 @@ const Login = () => {
                         </div>
                         {/* password */}
                         <div className="form-control w-full max-w-xs">
-                            <label className="label">
+                        <label className="label">
                                 <span className="label-text">password</span>
                             </label>
                             <input

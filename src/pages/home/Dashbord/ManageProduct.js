@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Lod from '../../sheard/Lod';
-import ProductRow from './ProductRow';
+import ProductRow from '../ProductRow';
 
 const ManageProduct = () => {
     const { data: products, isLoading,refetch } = useQuery('doctors', () => fetch(`http://localhost:5000/pd`).then(res => res.json()))
@@ -15,7 +15,7 @@ const ManageProduct = () => {
 
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-6 p-10'>
                 {
-                    products.map(product => <ProductRow
+                    products?.map(product => <ProductRow
                         key={product._id}
                         product={product}
                         refetch={refetch}

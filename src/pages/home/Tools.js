@@ -14,10 +14,10 @@ const Tools = () => {
     },[])
     return (
         <div>
-            <p className='text-center text-3xl text-green-600 mb-8 font-bold'>Available bike repeare Tools</p>
+            <p className='text-center text-5xl text-indigo-500 mb-8 font-bold'>Available bike repeare Tools</p>
             <div className='md:grid grid-cols-3 container mx-auto gap-12 '>
                 {
-                    Tools.map(tool=><Tool
+                    Tools?.map(tool=><Tool
                     tool={tool}
                 
                     ></Tool>)

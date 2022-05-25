@@ -12,7 +12,7 @@ const Navbar = () => {
         signOut(auth);
     }
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 z-[100]">
             <div className="flex-1 ">
                 <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
             </div>
@@ -20,8 +20,8 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal p-0">
                     <li><NavLink className={'ml-3'} to={'/'}>Home</NavLink></li>
                    
-                    <li>{user && <NavLink className={'ml-3'} to={'/dashbord'}>dashbord</NavLink>}</li>
-                    <li><NavLink className={'ml-3'} to={'/concat'}>concat</NavLink></li>
+                    <li>{user && <NavLink className={'ml-3'} to={'/dashbord'}>Dashbord</NavLink>}</li>
+                    <li><NavLink className={'ml-3'} to={'/about'}>about</NavLink></li>
                     <li>{
                         user ? <button
                             onClick={logout} className="btn btn-ghost"

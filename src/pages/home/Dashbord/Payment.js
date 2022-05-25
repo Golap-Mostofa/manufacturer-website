@@ -7,6 +7,7 @@ const Payment = () => {
     const { id } = useParams()
     const url = `http://localhost:5000/booking/${id}`;
     const { data: booked, isLoading } = useQuery(['booking', id], () => fetch(url).then(res => res.json()))
+    console.log(booked);
     if (isLoading) {
         return <Lod></Lod>
     }

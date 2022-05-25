@@ -2,7 +2,7 @@ import React from 'react';
 import Tool2 from '../../assite/tool2.jpg'
 const HomeBanner = () => {
     return (
-        <div className="hero min-h-screen ">
+        <div className="hero min-h-screen px-16">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img src={Tool2} className="max-w-sm rounded-lg shadow-2xl" />
                 <div>

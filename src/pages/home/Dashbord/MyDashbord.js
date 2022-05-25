@@ -37,7 +37,7 @@ const MyDashbord = () => {
                         {/* <!-- row 1 --> */}
 
                         {
-                            booked.map(a => <tr>
+                            booked.map((a ,index)=> <tr>
                                 <th>1</th>
                                 <td>{user?.displayName}</td>
                                 <td>{a?.name}</td>
