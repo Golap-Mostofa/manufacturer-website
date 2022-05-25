@@ -1,6 +1,7 @@
 import React from 'react';
-import banner5 from '../../assite/banner/banner5.jpg'
-import banner2 from '../../assite/banner/banner2.jpg'
+import tool1 from '../../assite/banner/bike-01.jpg'
+import tool2 from '../../assite/banner/banner4.webp'
+import tool3 from '../../assite/banner/banner5.jpg'
 const Services = () => {
     return (
         <div className='px-16'>
@@ -10,7 +11,7 @@ const Services = () => {
                     <div className='flex justify-center items-center'>
                         <div class="avatar">
                             <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src="https://api.lorem.space/image/face?hash=3174" />
+                                <img src={tool1} />
                             </div>
                         </div>
                     </div>
@@ -24,7 +25,7 @@ const Services = () => {
                     <div className='flex justify-center items-center'>
                         <div class="avatar">
                             <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src="https://api.lorem.space/image/face?hash=3174" />
+                                <img src={tool2} />
                             </div>
                         </div>
                     </div>
@@ -37,7 +38,7 @@ const Services = () => {
                     <div className='flex justify-center items-center'>
                         <div class="avatar">
                             <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src="https://api.lorem.space/image/face?hash=3174" />
+                                <img src={tool3} />
                             </div>
                         </div>
                     </div>
