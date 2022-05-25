@@ -4,7 +4,7 @@ import Lod from '../../sheard/Lod';
 import ProductRow from '../ProductRow';
 
 const ManageProduct = () => {
-    const { data: products, isLoading,refetch } = useQuery('doctors', () => fetch(`http://localhost:5000/pd`).then(res => res.json()))
+    const { data: products, isLoading,refetch } = useQuery('doctors', () => fetch(`https://gentle-oasis-52101.herokuapp.com/pd`).then(res => res.json()))
     if (isLoading) {
         return <Lod></Lod>
     }

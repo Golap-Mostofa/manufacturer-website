@@ -6,7 +6,7 @@ import Lod from '../../sheard/Lod';
 
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit,reset } = useForm();
-    const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/product').then(res => res.json()))
+    const { data: products, isLoading } = useQuery('products', () => fetch('https://gentle-oasis-52101.herokuapp.com/product').then(res => res.json()))
 
     const imgKey = '12be30ece3459e819fc126db848e42a7'
     
@@ -33,7 +33,7 @@ const AddProduct = () => {
                     product:data.product,
                     img:img
                 }
-                fetch(`http://localhost:5000/prodact`,{
+                fetch(`https://gentle-oasis-52101.herokuapp.com/prodact`,{
                     method:'POST',
                     headers:{
                         'content-type':'application/json'

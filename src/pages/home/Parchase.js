@@ -22,7 +22,7 @@ const Parchase = () => {
 
         }
         console.log(booking);
-        fetch(`http://localhost:5000/booking`, {
+        fetch(`https://gentle-oasis-52101.herokuapp.com/booking`, {
             method: 'POST',
             headers: {
                 'content-type': `application/json`

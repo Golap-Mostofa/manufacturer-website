@@ -4,7 +4,7 @@ import Lod from '../../sheard/Lod';
 import UserRow from './UserRow';
 
 const Users = () => {
-    const { data: users, isLoading,refetch } = useQuery('users', () => fetch(`http://localhost:5000/user`).then(res => res.json()))
+    const { data: users, isLoading,refetch } = useQuery('users', () => fetch(`https://gentle-oasis-52101.herokuapp.com/user`).then(res => res.json()))
     if (isLoading) {
        return <Lod></Lod>
     }

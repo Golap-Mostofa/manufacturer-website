@@ -8,7 +8,7 @@ const ProductRow = ({ product, refetch }) => {
 
         const prosude = window.confirm('are you sure you want to delete')
         if (prosude) {
-            const url = `http://localhost:5000/pd/${id}`
+            const url = `https://gentle-oasis-52101.herokuapp.com/pd/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

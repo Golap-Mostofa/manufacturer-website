@@ -9,7 +9,7 @@ const MyDashbord = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/product?parbooked${user.email}`)
+            fetch(`https://gentle-oasis-52101.herokuapp.com/product?parbooked${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setBooked(data)
