@@ -16,6 +16,7 @@ import AddProduct from './pages/home/Dashbord/AddProduct';
 import ManageProduct from './pages/home/Dashbord/ManageProduct';
 import Payment from './pages/home/Dashbord/Payment';
 import Blogs from './pages/home/Blogs';
+import NotFound from './pages/sheard/NotFound';
 function App() {
   return (
     <div className='bg-white'>
@@ -46,7 +47,7 @@ function App() {
 
         <Route path='/Login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
-        <Route></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
     </div>
