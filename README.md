@@ -1,8 +1,10 @@
-# Getting Started with Create React App
+# *****Getting start Car Parts & Supply*******
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Car Parts & Supply [Create Car Parts ](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## this project used
+teailwind daisy UI react router firebase firebase hooks 
+react Query express database mongodb etc
 
 In the project directory, you can run:
 
