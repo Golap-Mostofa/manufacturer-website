@@ -14,7 +14,7 @@ const CheckoutForm = ({ booked }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment', {
+        fetch('https://gentle-oasis-52101.herokuapp.com/create-payment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

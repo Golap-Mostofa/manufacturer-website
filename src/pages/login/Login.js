@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
+import Lod from '../sheard/Lod';
 // import auth from '../login/firebase.init'
 
 
@@ -27,7 +28,7 @@ const Login = () => {
     }
  
     if(loading || gloading){
-        return <p>Loging....</p>
+        return <Lod></Lod>
     }
  
     if(error || gerror){

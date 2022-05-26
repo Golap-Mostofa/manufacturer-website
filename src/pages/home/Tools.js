@@ -8,7 +8,7 @@ const Tools = () => {
     const [Tools,SetTools] = useState([])
     const [parchase,setParchase] = useState(null)
     useEffect(()=>{
-        fetch('http://localhost:5000/product')
+        fetch('https://gentle-oasis-52101.herokuapp.com/product')
         .then(res=>res.json())
         .then(data=>SetTools(data))
     },[])

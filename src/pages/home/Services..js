@@ -9,8 +9,8 @@ const Services = () => {
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24'>
                 <div className="grid rounded-lg shadow-md grid-cols-2 lg:max-w-lg bg-slate-100 text-white-content">
                     <div className='flex justify-center items-center'>
-                        <div class="avatar">
-                            <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <div className="avatar">
+                            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img src={tool1} />
                             </div>
                         </div>
@@ -23,8 +23,8 @@ const Services = () => {
                 </div>
                 <div className="grid rounded-lg shadow-md grid-cols-2 lg:max-w-lg bg-slate-100 text-white-content">
                     <div className='flex justify-center items-center'>
-                        <div class="avatar">
-                            <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <div className="avatar">
+                            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img src={tool2} />
                             </div>
                         </div>
@@ -36,8 +36,8 @@ const Services = () => {
                 </div>
                 <div className="grid rounded-lg shadow-md grid-cols-2  lg:max-w-lg bg-slate-100 text-white-content">
                     <div className='flex justify-center items-center'>
-                        <div class="avatar">
-                            <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <div className="avatar">
+                            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img src={tool3} />
                             </div>
                         </div>
