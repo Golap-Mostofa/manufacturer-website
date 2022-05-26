@@ -37,14 +37,14 @@ const MyDashbord = () => {
                         {/* <!-- row 1 --> */}
 
                         {
-                            booked.map((a ,index)=> <tr>
+                            booked.map((a, index) => <tr>
                                 <th>1</th>
                                 <td>{user?.displayName}</td>
                                 <td>{a?.name}</td>
                                 <td>{a?._id}</td>
                                 <td>
-                                    {(a?.price && !a.paid) && <Link 
-                                    to={`/dashbord/payment/${a._id}`}><button className='btn btn-success btn-sm'>pay</button></Link>}
+                                    {(a?.price && !a.paid) && <Link
+                                        to={`/dashbord/payment/${a._id}`}><button className='btn btn-success btn-sm'>pay</button></Link>}
                                     {(a?.price && a.paid) && <button className='btn btn-success btn-sm'>pay</button>}
                                 </td>
                             </tr>)

@@ -8,9 +8,9 @@ const Payment = () => {
     const url = `https://gentle-oasis-52101.herokuapp.com/booking/${id}`;
     const { data: booked, isLoading } = useQuery(['booking', id], () => fetch(url).then(res => res.json()))
     console.log(booked);
-    if (isLoading) {
-        return <Lod></Lod>
-    }
+    // if (isLoading) {
+    //     return <Lod></Lod>
+    // }
     return (
         <div>
             <h2 className='text-2xl font-semibold text-green-600'>please pay for:{id}</h2>
