@@ -7,6 +7,7 @@ const CheckoutForm = ({ booked }) => {
     const stripe = useStripe()
     const elements = useElements()
     const [cardError, setCardError] = useState('')
+    const [success, setSuccess] = useState('')
     const [clientSecret, setClientSecret] = useState('')
 
     const { price } = booked;
@@ -18,11 +19,11 @@ const CheckoutForm = ({ booked }) => {
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify({price})
+            body: JSON.stringify({ price })
         })
             .then(res => res.json())
             .then(data => {
-                if(data?.clientSecret){
+                if (data?.clientSecret) {
                     setClientSecret(data.clientSecret)
                 }
             })
@@ -44,11 +45,33 @@ const CheckoutForm = ({ booked }) => {
             type: 'card',
             card,
         });
-        if (error) {
-            // console.log(error);
-            setCardError(error?.message || '')
-        }
 
+
+        setCardError(error?.message || '')
+        setSuccess('')
+
+
+        // confrom payment?
+
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: 'Jenny Rosen',
+                    },
+                },
+            },
+        );
+        if (intentError) {
+            setCardError(clientSecret?.message)
+            success('')
+        }
+        else {
+            setCardError('')
+            setSuccess('congrares! Your payment is Completed')
+        }
     }
 
     return (
@@ -76,6 +99,9 @@ const CheckoutForm = ({ booked }) => {
             </form>
             {
                 cardError && <p className='text-red-500' >{cardError}</p>
+            }
+            {
+                cardError && <p className='text-green-500' >{success}</p>
             }
         </>
     );

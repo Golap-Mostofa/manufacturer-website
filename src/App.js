@@ -15,6 +15,7 @@ import Users from './pages/home/Dashbord/Users';
 import AddProduct from './pages/home/Dashbord/AddProduct';
 import ManageProduct from './pages/home/Dashbord/ManageProduct';
 import Payment from './pages/home/Dashbord/Payment';
+import Blogs from './pages/home/Blogs';
 function App() {
   return (
     <div className='bg-white'>
@@ -22,6 +23,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/about' element={<Blogs></Blogs>}></Route>
         <Route path='/parchase/:service' element={<RequerAuth>
           <Parchase></Parchase>
         </RequerAuth>}></Route>

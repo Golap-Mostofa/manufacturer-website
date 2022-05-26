@@ -1,5 +1,5 @@
 import React from 'react';
-import Tool2 from '../../assite/tool2.jpg'
+import Tool2 from '../../assite/banner/tool-3.jpg'
 const HomeBanner = () => {
     return (
         <div className="hero min-h-screen px-16">
