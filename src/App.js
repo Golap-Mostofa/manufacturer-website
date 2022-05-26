@@ -24,6 +24,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/about' element={<Blogs></Blogs>}></Route>
+
         <Route path='/parchase/:service' element={<RequerAuth>
           <Parchase></Parchase>
         </RequerAuth>}></Route>
